@@ -51,3 +51,14 @@ gem 'ecm_youtube_backend', path: '~/rails/ecm/ecm_youtube_backend'
 
 # ecm_staff2
 gem 'globalize', git: 'https://github.com/globalize/globalize'
+
+# application
+gem 'therubyracer', platforms: :ruby
+
+# development
+gem 'guard-bundler',      groups: [:development]
+gem 'guard-rails',        groups: [:development]
+gem 'guard-rspec',        groups: [:development]
+gem 'rspec-rails',        groups: [:development, :test], require: false
+gem 'factory_girl_rails', groups: [:development, :test], require: false
+gem 'shoulda-matchers',   groups: [:test],               require: false
