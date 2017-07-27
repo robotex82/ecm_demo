@@ -16,4 +16,6 @@ Ecm::Blog::Backend.configure do |config|
   # 
   config.registered_services = -> {[
   ]}
+
+  config.creator_label_method = :email
 end

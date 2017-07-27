@@ -1,3 +1,3 @@
 Ecm::Blog.configure do |config|
-  # Nothing here yet
+  config.creator_class_name = 'Ecm::UserArea::User'
 end

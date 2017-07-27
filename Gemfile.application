@@ -23,6 +23,7 @@ gem 'ecm_rbac_backend', path: '~/rails/ecm/ecm_rbac_backend'
 gem 'ecm_references2', path: '~/rails/ecm/ecm_references2'
 gem 'ecm_references2_backend', path: '~/rails/ecm/ecm_references2_backend'
 gem 'ecm_sliders2', path: '~/rails/ecm/ecm_sliders2'
+# gem 'ecm_sliders2_backend', path: '~/rails/ecm/ecm_sliders2_backend'
 gem 'ecm_staff2', path: '~/rails/ecm/ecm_staff2'
 gem 'ecm_staff2_backend', path: '~/rails/ecm/ecm_staff2_backend'
 gem 'ecm_tags', path: '~/rails/ecm/ecm_tags'
@@ -49,16 +50,34 @@ gem 'ecm_youtube_backend', path: '~/rails/ecm/ecm_youtube_backend'
 # gem 'ecm_pdf_output2', path: '~/rails/ecm/ecm_pdf_output2'
 # gem 'ecm_sliders', path: '~/rails/ecm/ecm_sliders'
 
-# ecm_staff2
-gem 'globalize', git: 'https://github.com/globalize/globalize'
-
 # application
 gem 'therubyracer', platforms: :ruby
 
 # development
+gem 'capybara',           groups: [:test],               require: false
 gem 'guard-bundler',      groups: [:development]
 gem 'guard-rails',        groups: [:development]
 gem 'guard-rspec',        groups: [:development]
 gem 'rspec-rails',        groups: [:development, :test], require: false
 gem 'factory_girl_rails', groups: [:development, :test], require: false
 gem 'shoulda-matchers',   groups: [:test],               require: false
+# gem 'formulaic',          groups: [:test],               require: false
+gem 'i18n-debug',         groups: [:development]
+gem 'launchy',            groups: [:test]
+gem 'selenium-webdriver', groups: [:test]
+# gem 'database_cleaner',   groups: [:test]
+gem 'pry-rails', groups: [:development]
+
+# temporary
+gem 'itsf_backend', path: '~/rails/itsf/itsf_backend'
+gem 'rails_rad',    path: '~/rails/gems/rails_rad'
+gem 'globalize',    path: '~/rails/forks/globalize' # ecm_staff2
+gem 'acts-as-taggable-on', git: 'https://github.com/mbleigh/acts-as-taggable-on'
+gem 'friendly_id', git: 'https://github.com/norman/friendly_id'
+gem 'formulaic',    path: '~/rails/forks/formulaic', groups: [:test], require: false
+
+# try to fix engine routes
+# gem 'route_translator', path: '~/rails/forks/route_translator'
+
+# try to fix published
+gem 'acts_as_published', path: '~/rails/gems/acts_as_published'

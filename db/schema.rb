@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515220515) do
+ActiveRecord::Schema.define(version: 20170612174008) do
 
   create_table "ecm_blog_posts", force: :cascade do |t|
     t.string "title"
@@ -211,7 +211,6 @@ ActiveRecord::Schema.define(version: 20170515220515) do
     t.text "long_description"
     t.string "markup_language"
     t.integer "link_footer_column"
-    t.integer "ecm_links_links_count", default: 0, null: false
     t.integer "lft"
     t.integer "rgt"
     t.integer "parent_id"
@@ -226,11 +225,11 @@ ActiveRecord::Schema.define(version: 20170515220515) do
     t.string "url"
     t.text "description"
     t.string "markup_language"
-    t.integer "ecm_links_category_id"
+    t.integer "category_id"
     t.integer "position"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["ecm_links_category_id"], name: "index_ecm_links_links_on_ecm_links_category_id"
+    t.index ["category_id"], name: "index_ecm_links_links_on_category_id"
   end
 
   create_table "ecm_news_items", force: :cascade do |t|
@@ -337,7 +336,7 @@ ActiveRecord::Schema.define(version: 20170515220515) do
     t.string "markup_language"
     t.datetime "published_at"
     t.string "slug"
-    t.integer "ecm_references_category_id"
+    t.integer "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -347,7 +346,7 @@ ActiveRecord::Schema.define(version: 20170515220515) do
     t.string "url"
     t.integer "position"
     t.string "markup_language"
-    t.integer "ecm_sliders_slider_id"
+    t.integer "slider_id"
     t.string "image_file_name"
     t.integer "image_file_size"
     t.string "image_content_type"
@@ -369,18 +368,6 @@ ActiveRecord::Schema.define(version: 20170515220515) do
     t.datetime "updated_at"
   end
 
-  create_table "ecm_staff_business_unit_translations", force: :cascade do |t|
-    t.integer "business_unit_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.text "description"
-    t.string "slug"
-    t.index ["business_unit_id"], name: "index_cc00704703780d8b9055f73177cca693f3a1d0ed"
-    t.index ["locale"], name: "index_ecm_staff_business_unit_translations_on_locale"
-  end
-
   create_table "ecm_staff_business_units", force: :cascade do |t|
     t.integer "organisation_id"
     t.string "name"
@@ -395,18 +382,6 @@ ActiveRecord::Schema.define(version: 20170515220515) do
     t.datetime "updated_at"
     t.index ["organisation_id"], name: "index_ecm_staff_business_units_on_organisation_id"
     t.index ["parent_id"], name: "index_ecm_staff_business_units_on_parent_id"
-  end
-
-  create_table "ecm_staff_organisation_translations", force: :cascade do |t|
-    t.integer "organisation_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.text "description"
-    t.string "slug"
-    t.index ["locale"], name: "index_ecm_staff_organisation_translations_on_locale"
-    t.index ["organisation_id"], name: "index_ec7eecd88462db07cbe6bb6d0465dff84bb8b9db"
   end
 
   create_table "ecm_staff_organisations", force: :cascade do |t|
@@ -442,30 +417,6 @@ ActiveRecord::Schema.define(version: 20170515220515) do
     t.index ["business_unit_id"], name: "index_ecm_staff_person_positions_on_business_unit_id"
     t.index ["person_id"], name: "index_ecm_staff_person_positions_on_person_id"
     t.index ["position_id"], name: "index_ecm_staff_person_positions_on_position_id"
-  end
-
-  create_table "ecm_staff_person_translations", force: :cascade do |t|
-    t.integer "person_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "prefix"
-    t.text "description"
-    t.string "slug"
-    t.index ["locale"], name: "index_ecm_staff_person_translations_on_locale"
-    t.index ["person_id"], name: "index_ecm_staff_person_translations_on_ecm_staff_person_id"
-  end
-
-  create_table "ecm_staff_position_translations", force: :cascade do |t|
-    t.integer "position_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.text "description"
-    t.string "slug"
-    t.index ["locale"], name: "index_ecm_staff_position_translations_on_locale"
-    t.index ["position_id"], name: "index_ecm_staff_position_translations_on_ecm_staff_position_id"
   end
 
   create_table "ecm_staff_positions", force: :cascade do |t|

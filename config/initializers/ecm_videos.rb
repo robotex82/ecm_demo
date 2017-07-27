@@ -31,10 +31,12 @@ Ecm::Videos.configure do |config|
   config.paperclip_options = proc do |_model|
     {
       styles: {
-        small_thumb:   '80x60',
-        medium_thumb:  '160x120',
-        default_thumb: '260x180'
-      }
+          # :medium       => { :geometry => "640x480", :format => 'flv' },
+          small_thumb:  { geometry: '80x60',   format: 'jpg', time: 10 },
+          medium_thumb: { geometry: '160x120', format: 'jpg', time: 10 },
+          small_thumb:  { geometry: '260x180', format: 'jpg', time: 10 }
+      },
+      processors: [:transcoder]
     }
   end
 end

@@ -21,4 +21,13 @@ Ecm::Tags::Backend.configure do |config|
     [
     ]
   }
+
+  config.taggable_class_names = %w(
+    Ecm::Pictures::Picture
+    Ecm::News::Item
+  )
+
+  config.tagger_class_names = %w(
+    User
+  )
 end
